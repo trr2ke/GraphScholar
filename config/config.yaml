@@ -1,0 +1,22 @@
+# GraphScholar configuration
+# Change `provider` to switch LLM backends (claude | openai | kimi | glm4).
+
+provider: claude
+model: claude-opus-4-8
+
+# arXiv ingestion
+n_papers: 20
+
+# Node deduplication: cosine similarity above this merges two same-type nodes
+similarity_threshold: 0.85
+
+# Run community detection + summarisation after every N papers
+community_detection_frequency: 5
+
+# OpenAI-compatible provider overrides (active when provider != claude)
+openai:
+  model: gpt-4o
+  embedding_model: text-embedding-3-small
+  # Uncomment and set base_url to target Kimi or GLM4:
+  # base_url: https://api.moonshot.cn/v1        # Kimi
+  # base_url: https://open.bigmodel.cn/api/paas/v4  # GLM4
